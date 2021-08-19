@@ -145,6 +145,8 @@ namespace PostgreProductProject
         {
             Form1 frm = new Form1();
             frm.Show();
+            this.Hide();
+
         }
     }
 }

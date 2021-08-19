@@ -64,5 +64,13 @@ namespace PostgreProductProject
             dataGridView1.DataSource = ds.Tables[0];
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            // Form1 frm = new Form1();
+            // frm.Show();
+            FormProduct fdct = new FormProduct();
+            fdct.Show();
+            this.Hide();
+        }
     }
 }
