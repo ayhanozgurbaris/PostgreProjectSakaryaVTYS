@@ -32,7 +32,6 @@ namespace PostgreProductProject
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.textCategory = new System.Windows.Forms.TextBox();
-            this.buttonList = new System.Windows.Forms.Button();
             this.textCatName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.buttonDelete = new System.Windows.Forms.Button();
@@ -70,16 +69,6 @@ namespace PostgreProductProject
             this.textCategory.Size = new System.Drawing.Size(320, 31);
             this.textCategory.TabIndex = 3;
             // 
-            // buttonList
-            // 
-            this.buttonList.Location = new System.Drawing.Point(533, 30);
-            this.buttonList.Name = "buttonList";
-            this.buttonList.Size = new System.Drawing.Size(156, 39);
-            this.buttonList.TabIndex = 4;
-            this.buttonList.Text = "list";
-            this.buttonList.UseVisualStyleBackColor = true;
-            this.buttonList.Click += new System.EventHandler(this.buttonList_Click);
-            // 
             // textCatName
             // 
             this.textCatName.Location = new System.Drawing.Point(168, 453);
@@ -106,6 +95,7 @@ namespace PostgreProductProject
             this.buttonDelete.TabIndex = 7;
             this.buttonDelete.Text = "delete";
             this.buttonDelete.UseVisualStyleBackColor = true;
+            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
             // 
             // buttonUpdate
             // 
@@ -148,7 +138,6 @@ namespace PostgreProductProject
             this.Controls.Add(this.buttonDelete);
             this.Controls.Add(this.textCatName);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.buttonList);
             this.Controls.Add(this.textCategory);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
@@ -168,7 +157,6 @@ namespace PostgreProductProject
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textCategory;
-        private System.Windows.Forms.Button buttonList;
         private System.Windows.Forms.TextBox textCatName;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button buttonDelete;

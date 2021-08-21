@@ -13,12 +13,21 @@ namespace PostgreProductProject
 {
     public partial class Form1 : Form
     {
+        NpgsqlConnection conect = new NpgsqlConnection("server=localhost;port=5432;Database=projectDb;user Id=postgres;password=4462252");
 
 
         public Form1()
         {
             InitializeComponent();
+
+            string query = "select * from categories";
+            NpgsqlDataAdapter da = new NpgsqlDataAdapter(query, conect);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            dataGridView1.DataSource = ds.Tables[0];
+
         }
+
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -50,19 +59,16 @@ namespace PostgreProductProject
             conect.Close();
             MessageBox.Show("category added succesfully");
 
-        }
-        NpgsqlConnection conect = new NpgsqlConnection("server=localhost;port=5432;Database=projectDb;user Id=postgres;password=4462252");
-
-        public object Product { get; private set; }
-
-        private void buttonList_Click(object sender, EventArgs e)
-        {
             string query = "select * from categories";
             NpgsqlDataAdapter da = new NpgsqlDataAdapter(query, conect);
             DataSet ds = new DataSet();
             da.Fill(ds);
             dataGridView1.DataSource = ds.Tables[0];
+
         }
+
+        public object Product { get; private set; }
+
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -71,6 +77,11 @@ namespace PostgreProductProject
             FormProduct fdct = new FormProduct();
             fdct.Show();
             this.Hide();
+        }
+
+        private void buttonDelete_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
