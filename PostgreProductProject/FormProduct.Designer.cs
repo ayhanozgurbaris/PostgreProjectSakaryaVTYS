@@ -48,6 +48,7 @@ namespace PostgreProductProject
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             this.SuspendLayout();
@@ -60,7 +61,7 @@ namespace PostgreProductProject
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(789, 340);
+            this.dataGridView1.Size = new System.Drawing.Size(841, 352);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -81,7 +82,7 @@ namespace PostgreProductProject
             // 
             // buttonAdd
             // 
-            this.buttonAdd.Location = new System.Drawing.Point(12, 370);
+            this.buttonAdd.Location = new System.Drawing.Point(12, 394);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(101, 40);
             this.buttonAdd.TabIndex = 8;
@@ -91,7 +92,7 @@ namespace PostgreProductProject
             // 
             // buttonUpdate
             // 
-            this.buttonUpdate.Location = new System.Drawing.Point(119, 370);
+            this.buttonUpdate.Location = new System.Drawing.Point(119, 394);
             this.buttonUpdate.Name = "buttonUpdate";
             this.buttonUpdate.Size = new System.Drawing.Size(101, 40);
             this.buttonUpdate.TabIndex = 9;
@@ -101,7 +102,7 @@ namespace PostgreProductProject
             // 
             // buttonDelete
             // 
-            this.buttonDelete.Location = new System.Drawing.Point(226, 370);
+            this.buttonDelete.Location = new System.Drawing.Point(226, 394);
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Size = new System.Drawing.Size(101, 40);
             this.buttonDelete.TabIndex = 10;
@@ -139,7 +140,7 @@ namespace PostgreProductProject
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(599, 370);
+            this.textBox1.Location = new System.Drawing.Point(599, 403);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(202, 22);
             this.textBox1.TabIndex = 17;
@@ -148,7 +149,7 @@ namespace PostgreProductProject
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(557, 373);
+            this.label1.Location = new System.Drawing.Point(557, 406);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(36, 17);
             this.label1.TabIndex = 18;
@@ -163,7 +164,7 @@ namespace PostgreProductProject
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(206, 123);
             this.button1.TabIndex = 19;
-            this.button1.Text = "Kategori Ekle";
+            this.button1.Text = "Kategoriler";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -221,11 +222,25 @@ namespace PostgreProductProject
             this.label7.TabIndex = 25;
             this.label7.Text = "kategori";
             // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.button2.Location = new System.Drawing.Point(744, 491);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(199, 123);
+            this.button2.TabIndex = 26;
+            this.button2.Text = "Müşteriler";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // FormProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1220, 645);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -276,5 +291,6 @@ namespace PostgreProductProject
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button button2;
     }
 }

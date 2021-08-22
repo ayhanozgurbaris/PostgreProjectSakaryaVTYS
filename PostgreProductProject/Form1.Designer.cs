@@ -45,12 +45,13 @@ namespace PostgreProductProject
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dataGridView1.Location = new System.Drawing.Point(27, 30);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 35);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(486, 360);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // label1
             // 
@@ -89,37 +90,38 @@ namespace PostgreProductProject
             // 
             // buttonDelete
             // 
-            this.buttonDelete.Location = new System.Drawing.Point(533, 131);
+            this.buttonDelete.Location = new System.Drawing.Point(681, 86);
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Size = new System.Drawing.Size(156, 39);
             this.buttonDelete.TabIndex = 7;
-            this.buttonDelete.Text = "delete";
+            this.buttonDelete.Text = "kategori sil";
             this.buttonDelete.UseVisualStyleBackColor = true;
             this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
             // 
             // buttonUpdate
             // 
-            this.buttonUpdate.Location = new System.Drawing.Point(533, 191);
+            this.buttonUpdate.Location = new System.Drawing.Point(843, 86);
             this.buttonUpdate.Name = "buttonUpdate";
             this.buttonUpdate.Size = new System.Drawing.Size(156, 39);
             this.buttonUpdate.TabIndex = 9;
-            this.buttonUpdate.Text = "update";
+            this.buttonUpdate.Text = "güncelle";
             this.buttonUpdate.UseVisualStyleBackColor = true;
+            this.buttonUpdate.Click += new System.EventHandler(this.buttonUpdate_Click);
             // 
             // buttonAdd
             // 
-            this.buttonAdd.Location = new System.Drawing.Point(533, 86);
+            this.buttonAdd.Location = new System.Drawing.Point(519, 86);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(156, 39);
             this.buttonAdd.TabIndex = 10;
-            this.buttonAdd.Text = "add";
+            this.buttonAdd.Text = "kategori ekle";
             this.buttonAdd.UseVisualStyleBackColor = true;
             this.buttonAdd.Click += new System.EventHandler(this.button5_Click);
             // 
             // button2
             // 
             this.button2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button2.Location = new System.Drawing.Point(740, 377);
+            this.button2.Location = new System.Drawing.Point(665, 187);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(172, 96);
             this.button2.TabIndex = 11;

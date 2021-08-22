@@ -72,8 +72,7 @@ namespace PostgreProductProject
 
         private void button2_Click(object sender, EventArgs e)
         {
-            // Form1 frm = new Form1();
-            // frm.Show();
+   
             FormProduct fdct = new FormProduct();
             fdct.Show();
             this.Hide();
@@ -81,6 +80,46 @@ namespace PostgreProductProject
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
+    
+            conect.Open();
+            NpgsqlCommand cmd4 = new NpgsqlCommand("delete from categories where categoryid=@p1", conect);
+            cmd4.Parameters.AddWithValue("@p1", int.Parse(textCategory.Text));
+            cmd4.ExecuteNonQuery();
+            conect.Close();
+            MessageBox.Show("deleted");
+
+            string query = "select * from categories";
+            NpgsqlDataAdapter ad = new NpgsqlDataAdapter(query, conect);
+            DataSet ds = new DataSet();
+            ad.Fill(ds);
+            dataGridView1.DataSource = ds.Tables[0];
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void buttonUpdate_Click(object sender, EventArgs e)
+        {
+
+
+            conect.Open();
+            NpgsqlCommand cmd1 = new NpgsqlCommand("update categories set categoryname = @p2 where categoryid = @p1", conect);
+         
+            cmd1.Parameters.AddWithValue("@p1", int.Parse(textCategory.Text));
+            cmd1.Parameters.AddWithValue("@p2", textCatName.Text);
+
+            cmd1.ExecuteNonQuery();
+
+            MessageBox.Show("updated");
+            string query = "select * from categories";
+            NpgsqlDataAdapter da = new NpgsqlDataAdapter(query, conect);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            dataGridView1.DataSource = ds.Tables[0];
+            conect.Close();
 
         }
     }

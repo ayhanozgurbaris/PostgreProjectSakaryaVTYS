@@ -75,11 +75,16 @@ namespace PostgreProductProject
         {
             //update kısmı TAMAM;
             conect.Open();
-            NpgsqlCommand cmd3 = new NpgsqlCommand("update products set productName=@p1,reserve=@p2,buyingPrice=@p3 where productId=@p4", conect);
+            NpgsqlCommand cmd3 = new NpgsqlCommand("update products set productname=@p1,reserve=@p2,buyingprice=@p3,saleprice=@p5 where productid=@p4", conect);
+
+
             cmd3.Parameters.AddWithValue("@p1", textproductName.Text);
             cmd3.Parameters.AddWithValue("@p2", int.Parse(numericUpDown2.Value.ToString()));
             cmd3.Parameters.AddWithValue("@p3", decimal.Parse(textbuyingPrice.Text));
             cmd3.Parameters.AddWithValue("@p4", int.Parse(textproductID.Text));
+            cmd3.Parameters.AddWithValue("@p5", decimal.Parse(textsellingPrice.Text));
+
+
             cmd3.ExecuteNonQuery();
 
             MessageBox.Show("updated");
@@ -147,6 +152,13 @@ namespace PostgreProductProject
             frm.Show();
             this.Hide();
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            musteri mtr = new musteri();
+            mtr.Show();
+            this.Hide();
         }
     }
 }
