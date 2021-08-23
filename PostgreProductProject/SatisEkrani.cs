@@ -49,12 +49,19 @@ namespace PostgreProductProject
 
         private void bttnGoProducts_Click(object sender, EventArgs e)
         {
-            // todo;
-            // getProduct ıd
-            // getCustomerId
+            //satın al
+            conect.Open();
+            NpgsqlCommand cmd = new NpgsqlCommand("insert into customer (id,name,surname,city_id,bakiye) values (@p1,@p2,@p3,@p4,@p5)", conect);
+            cmd.Parameters.AddWithValue("@p2", cmbMusteri.SelectedValue.ToString());
+            string var = cmbMusteri.Text;
+
+            NpgsqlCommand cmdb = new NpgsqlCommand("insert into products (productid,productname,reserve,buyingprice,saleprice,category) values (@p1,@p2,@p3,@p4,@p5,@p6)", conect);
+            cmdb.Parameters.AddWithValue("@p2", cmbUrun.SelectedValue.ToString());
+            string var2 = cmbUrun.Text;
+
+            MessageBox.Show(var + "," + var2  + "'yi satın aldı");
 
 
-            // insert into sale
         }
 
         private void dgwMusteri_CellContentClick(object sender, DataGridViewCellEventArgs e)

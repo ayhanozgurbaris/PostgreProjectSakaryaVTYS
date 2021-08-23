@@ -34,14 +34,11 @@ namespace PostgreProductProject
             this.dgvProduct = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.label3 = new System.Windows.Forms.Label();
             this.cmbMusteri = new System.Windows.Forms.ComboBox();
             this.cmbUrun = new System.Windows.Forms.ComboBox();
             this.btnUrunl = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgwMusteri)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduct)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // bttnGoProducts
@@ -94,22 +91,6 @@ namespace PostgreProductProject
             this.label2.TabIndex = 26;
             this.label2.Text = "Ürün Seçin";
             // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.Location = new System.Drawing.Point(69, 527);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(120, 22);
-            this.numericUpDown1.TabIndex = 27;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(66, 498);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(41, 17);
-            this.label3.TabIndex = 26;
-            this.label3.Text = "Adet:";
-            // 
             // cmbMusteri
             // 
             this.cmbMusteri.FormattingEnabled = true;
@@ -144,9 +125,7 @@ namespace PostgreProductProject
             this.Controls.Add(this.btnUrunl);
             this.Controls.Add(this.cmbUrun);
             this.Controls.Add(this.cmbMusteri);
-            this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.bttnGoProducts);
             this.Controls.Add(this.dgvProduct);
@@ -156,7 +135,6 @@ namespace PostgreProductProject
             this.Load += new System.EventHandler(this.SatisEkrani_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgwMusteri)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduct)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -169,8 +147,6 @@ namespace PostgreProductProject
         private System.Windows.Forms.DataGridView dgvProduct;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cmbMusteri;
         private System.Windows.Forms.ComboBox cmbUrun;
         private System.Windows.Forms.Button btnUrunl;
