@@ -49,6 +49,7 @@ namespace PostgreProductProject
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
+            this.btnSatinAl = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             this.SuspendLayout();
@@ -72,6 +73,7 @@ namespace PostgreProductProject
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 24);
             this.comboBox1.TabIndex = 1;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged_1);
             // 
             // numericUpDown2
             // 
@@ -235,11 +237,23 @@ namespace PostgreProductProject
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // btnSatinAl
+            // 
+            this.btnSatinAl.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnSatinAl.Location = new System.Drawing.Point(472, 491);
+            this.btnSatinAl.Name = "btnSatinAl";
+            this.btnSatinAl.Size = new System.Drawing.Size(225, 120);
+            this.btnSatinAl.TabIndex = 27;
+            this.btnSatinAl.Text = "Satın Al";
+            this.btnSatinAl.UseVisualStyleBackColor = false;
+            this.btnSatinAl.Click += new System.EventHandler(this.button3_Click);
+            // 
             // FormProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1220, 645);
+            this.Controls.Add(this.btnSatinAl);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -292,5 +306,6 @@ namespace PostgreProductProject
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnSatinAl;
     }
 }

@@ -36,6 +36,9 @@ namespace PostgreProductProject
             this.label2 = new System.Windows.Forms.Label();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
+            this.cmbMusteri = new System.Windows.Forms.ComboBox();
+            this.cmbUrun = new System.Windows.Forms.ComboBox();
+            this.btnUrunl = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgwMusteri)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduct)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
@@ -61,6 +64,7 @@ namespace PostgreProductProject
             this.dgwMusteri.RowTemplate.Height = 24;
             this.dgwMusteri.Size = new System.Drawing.Size(650, 379);
             this.dgwMusteri.TabIndex = 13;
+            this.dgwMusteri.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgwMusteri_CellContentClick);
             // 
             // dgvProduct
             // 
@@ -106,11 +110,40 @@ namespace PostgreProductProject
             this.label3.TabIndex = 26;
             this.label3.Text = "Adet:";
             // 
+            // cmbMusteri
+            // 
+            this.cmbMusteri.FormattingEnabled = true;
+            this.cmbMusteri.Location = new System.Drawing.Point(182, 115);
+            this.cmbMusteri.Name = "cmbMusteri";
+            this.cmbMusteri.Size = new System.Drawing.Size(292, 24);
+            this.cmbMusteri.TabIndex = 28;
+            // 
+            // cmbUrun
+            // 
+            this.cmbUrun.FormattingEnabled = true;
+            this.cmbUrun.Location = new System.Drawing.Point(929, 115);
+            this.cmbUrun.Name = "cmbUrun";
+            this.cmbUrun.Size = new System.Drawing.Size(300, 24);
+            this.cmbUrun.TabIndex = 29;
+            // 
+            // btnUrunl
+            // 
+            this.btnUrunl.Location = new System.Drawing.Point(1126, 601);
+            this.btnUrunl.Name = "btnUrunl";
+            this.btnUrunl.Size = new System.Drawing.Size(327, 134);
+            this.btnUrunl.TabIndex = 30;
+            this.btnUrunl.Text = "ürünlere dön";
+            this.btnUrunl.UseVisualStyleBackColor = true;
+            this.btnUrunl.Click += new System.EventHandler(this.btnUrunl_Click);
+            // 
             // SatisEkrani
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1496, 775);
+            this.ClientSize = new System.Drawing.Size(1892, 885);
+            this.Controls.Add(this.btnUrunl);
+            this.Controls.Add(this.cmbUrun);
+            this.Controls.Add(this.cmbMusteri);
             this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label3);
@@ -138,5 +171,8 @@ namespace PostgreProductProject
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox cmbMusteri;
+        private System.Windows.Forms.ComboBox cmbUrun;
+        private System.Windows.Forms.Button btnUrunl;
     }
 }

@@ -160,5 +160,19 @@ namespace PostgreProductProject
             mtr.Show();
             this.Hide();
         }
+
+        private void comboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        { 
+
+                SatisEkrani mtr = new SatisEkrani();
+                mtr.Show();
+                this.Hide();
+            
+        }
     }
 }
