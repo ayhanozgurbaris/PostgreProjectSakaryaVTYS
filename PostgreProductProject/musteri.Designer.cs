@@ -1,7 +1,7 @@
 ﻿
 namespace PostgreProductProject
 {
-    partial class musteri
+    partial class customer
     {
         /// <summary>
         /// Required designer variable.
@@ -74,6 +74,7 @@ namespace PostgreProductProject
             this.bttnDeleteMusteri.TabIndex = 2;
             this.bttnDeleteMusteri.Text = "müşteri sil";
             this.bttnDeleteMusteri.UseVisualStyleBackColor = true;
+            this.bttnDeleteMusteri.Click += new System.EventHandler(this.bttnDeleteMusteri_Click);
             // 
             // bttnUpdateMusteri
             // 
@@ -83,6 +84,7 @@ namespace PostgreProductProject
             this.bttnUpdateMusteri.TabIndex = 3;
             this.bttnUpdateMusteri.Text = "müşteri güncelle";
             this.bttnUpdateMusteri.UseVisualStyleBackColor = true;
+            this.bttnUpdateMusteri.Click += new System.EventHandler(this.bttnUpdateMusteri_Click);
             // 
             // txtBmusteriNo
             // 
@@ -127,7 +129,7 @@ namespace PostgreProductProject
             this.labelMusteriAd.AutoSize = true;
             this.labelMusteriAd.Location = new System.Drawing.Point(907, 126);
             this.labelMusteriAd.Name = "labelMusteriAd";
-            this.labelMusteriAd.Size = new System.Drawing.Size(96, 21);
+            this.labelMusteriAd.Size = new System.Drawing.Size(77, 17);
             this.labelMusteriAd.TabIndex = 9;
             this.labelMusteriAd.Text = "müşteri adı";
             // 
@@ -136,7 +138,7 @@ namespace PostgreProductProject
             this.labelMusteriSoyad.AutoSize = true;
             this.labelMusteriSoyad.Location = new System.Drawing.Point(907, 192);
             this.labelMusteriSoyad.Name = "labelMusteriSoyad";
-            this.labelMusteriSoyad.Size = new System.Drawing.Size(124, 21);
+            this.labelMusteriSoyad.Size = new System.Drawing.Size(99, 17);
             this.labelMusteriSoyad.TabIndex = 10;
             this.labelMusteriSoyad.Text = "müşteri soyadı";
             this.labelMusteriSoyad.Click += new System.EventHandler(this.label3_Click);
@@ -146,7 +148,7 @@ namespace PostgreProductProject
             this.labelSehir.AutoSize = true;
             this.labelSehir.Location = new System.Drawing.Point(907, 241);
             this.labelSehir.Name = "labelSehir";
-            this.labelSehir.Size = new System.Drawing.Size(49, 21);
+            this.labelSehir.Size = new System.Drawing.Size(39, 17);
             this.labelSehir.TabIndex = 11;
             this.labelSehir.Text = "şehir";
             // 
@@ -161,7 +163,7 @@ namespace PostgreProductProject
             this.bttnGoProducts.UseVisualStyleBackColor = false;
             this.bttnGoProducts.Click += new System.EventHandler(this.bttnGoProducts_Click);
             // 
-            // musteri
+            // customer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -179,7 +181,7 @@ namespace PostgreProductProject
             this.Controls.Add(this.bttnDeleteMusteri);
             this.Controls.Add(this.bttnAddMusteri);
             this.Controls.Add(this.dgwMusteri);
-            this.Name = "musteri";
+            this.Name = "customer";
             this.Text = "musteri";
             ((System.ComponentModel.ISupportInitialize)(this.dgwMusteri)).EndInit();
             this.ResumeLayout(false);

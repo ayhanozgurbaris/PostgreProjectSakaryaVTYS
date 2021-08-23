@@ -80,7 +80,8 @@ namespace PostgreProductProject
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
-    
+            //DELETE KISMI TAMAM
+
             conect.Open();
             NpgsqlCommand cmd4 = new NpgsqlCommand("delete from categories where categoryid=@p1", conect);
             cmd4.Parameters.AddWithValue("@p1", int.Parse(textCategory.Text));

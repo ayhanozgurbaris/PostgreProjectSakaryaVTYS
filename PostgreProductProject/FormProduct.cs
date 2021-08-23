@@ -156,7 +156,7 @@ namespace PostgreProductProject
 
         private void button2_Click(object sender, EventArgs e)
         {
-            musteri mtr = new musteri();
+            customer mtr = new customer();
             mtr.Show();
             this.Hide();
         }

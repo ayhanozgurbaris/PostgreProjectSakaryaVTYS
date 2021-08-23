@@ -11,17 +11,17 @@ using System.Windows.Forms;
 
 namespace PostgreProductProject
 {
-    public partial class musteri : Form
+    public partial class customer : Form
     {
         NpgsqlConnection conect = new NpgsqlConnection("server=localhost;port=5432;Database=projectDb;user Id=postgres;password=4462252");
         DataSet ds = new DataSet();
 
 
-        public musteri()
+        public customer()
         {
             InitializeComponent();
 
-            string query = "select * from musteri";
+            string query = "select * from customer";
             NpgsqlDataAdapter da = new NpgsqlDataAdapter(query, conect);
             DataSet ds = new DataSet();
             da.Fill(ds);
@@ -40,30 +40,27 @@ namespace PostgreProductProject
 
         private void dgwMusteri_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            //textproductID.Text = dataGridView1.SelectedCells[0].Value.ToString();
-            //textproductName.Text = dataGridView1.SelectedCells[1].Value.ToString();
-            //numericUpDown2.Value = Convert.ToInt32(dataGridView1.SelectedCells[2].Value);
-            //textbuyingPrice.Text = dataGridView1.SelectedCells[3].Value.ToString();
-            //textsellingPrice.Text = dataGridView1.SelectedCells[4].Value.ToString();
+
 
         }
 
         private void bttnAddMusteri_Click(object sender, EventArgs e)
         {
+            //MUSTERİ EKLE TAMAM
+
             conect.Open();
-            NpgsqlCommand cmd2 = new NpgsqlCommand("insert into musteri (id,ad,soyad,sehir,productname) values (@p1,@p2,@p3,@p4,@p5)", conect);
+            NpgsqlCommand cmd2 = new NpgsqlCommand("insert into customer (id,name,surname,city_id) values (@p1,@p2,@p3,@p4)", conect);
             cmd2.Parameters.AddWithValue("@p1", int.Parse(txtBmusteriNo.Text));
             cmd2.Parameters.AddWithValue("@p2", txtBmusteriAd.Text);
             cmd2.Parameters.AddWithValue("@p3", txtBmusteriSoyad.Text);
-            cmd2.Parameters.AddWithValue("@p4", txtBmusteriSehir.Text);
-            // cmd2.Parameters.AddWithValue("@p5", ProductName);
-            
+            cmd2.Parameters.AddWithValue("@p4", int.Parse(txtBmusteriSehir.Text));
+    
 
             cmd2.ExecuteNonQuery();
             conect.Close();
-            MessageBox.Show("musteri added succesfully");
+            MessageBox.Show("customer added succesfully");
 
-            string query = "select * from musteri";
+            string query = "select * from customer";
             NpgsqlDataAdapter da = new NpgsqlDataAdapter(query, conect);
             DataSet ds = new DataSet();
             da.Fill(ds);
@@ -76,6 +73,52 @@ namespace PostgreProductProject
             FormProduct fdct = new FormProduct();
             fdct.Show();
             this.Hide();
+        }
+
+        private void bttnDeleteMusteri_Click(object sender, EventArgs e)
+        {
+            
+            //DELETE KISMI TAMAM 
+
+            conect.Open();
+            NpgsqlCommand cmd2 = new NpgsqlCommand("delete from customer where id=@p1", conect);
+            cmd2.Parameters.AddWithValue("@p1", int.Parse(txtBmusteriNo.Text));
+
+            cmd2.ExecuteNonQuery();
+            conect.Close();
+            MessageBox.Show("customer deleted succesfully");
+
+
+            string query = "select * from customer";
+            NpgsqlDataAdapter da = new NpgsqlDataAdapter(query, conect);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            dgwMusteri.DataSource = ds.Tables[0];
+
+
+        }
+
+        private void bttnUpdateMusteri_Click(object sender, EventArgs e)
+        {
+            //MUSTERİ GUNCELLE TAMAM
+
+            conect.Open();
+            NpgsqlCommand cmd2 = new NpgsqlCommand("update customer set name = @p2, city_id = @p3, surname = @p4  where id = @p1", conect);
+
+            cmd2.Parameters.AddWithValue("@p1", int.Parse(txtBmusteriNo.Text));
+            cmd2.Parameters.AddWithValue("@p2", txtBmusteriAd.Text);
+            cmd2.Parameters.AddWithValue("@p4", txtBmusteriSoyad.Text);
+            cmd2.Parameters.AddWithValue("@p3", int.Parse(txtBmusteriSehir.Text));
+
+            cmd2.ExecuteNonQuery();
+
+            MessageBox.Show("updated");
+            string query = "select * from customer";
+            NpgsqlDataAdapter da = new NpgsqlDataAdapter(query, conect);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            dgwMusteri.DataSource = ds.Tables[0];
+            conect.Close();
         }
     }
 }
