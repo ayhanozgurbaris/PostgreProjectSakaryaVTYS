@@ -1,0 +1,287 @@
+create table categories
+(
+    categoryid   integer not null
+        constraint categories_pkey
+            primary key,
+    categoryname text
+);
+
+alter table categories
+    owner to postgres;
+
+create table products
+(
+    productid   integer not null
+        constraint products_pkey
+            primary key,
+    productname text,
+    reserve     integer,
+    buyingprice integer,
+    saleprice   integer,
+    category    integer
+        constraint products_categories_categoryid_fk
+            references categories
+);
+
+alter table products
+    owner to postgres;
+
+create index fki_products_foreign
+    on products (category);
+
+create table personel
+(
+    personelid    integer not null
+        constraint personel_pkey
+            primary key,
+    personelad    varchar not null,
+    personelsoyad varchar not null
+);
+
+alter table personel
+    owner to postgres;
+
+create table city
+(
+    name varchar(50),
+    id   serial
+        constraint city_pk
+            primary key
+);
+
+alter table city
+    owner to postgres;
+
+create table customer
+(
+    surname text,
+    city_id integer
+        constraint customer_city_id_fk
+            references city,
+    id      bigserial
+        constraint customer_pk
+            primary key,
+    name    text
+);
+
+alter table customer
+    owner to postgres;
+
+create table sale
+(
+    customer_id   integer
+        constraint sale_customer_fk
+            references customer,
+    sale_personel integer
+        constraint sale_personel_fk
+            references personel,
+    quantity      integer,
+    product_id    integer
+        constraint sale_product_fk
+            references products,
+    sale_date     timestamp,
+    sale_id       integer not null
+        constraint sale_pk
+            primary key
+);
+
+alter table sale
+    owner to postgres;
+
+create table toplamkategori
+(
+    sayi integer
+);
+
+alter table toplamkategori
+    owner to postgres;
+
+create table toplamsehir
+(
+    sayi integer
+);
+
+alter table toplamsehir
+    owner to postgres;
+
+create table toplammusteri
+(
+    sayi integer
+);
+
+alter table toplammusteri
+    owner to postgres;
+
+create procedure programsahibi()
+    language plpgsql
+as
+$$
+begin
+    Raise Notice 'özgür barış ayhan';
+end;
+$$;
+
+alter procedure programsahibi() owner to postgres;
+
+create function totalbp() returns integer
+    language plpgsql
+as
+$$
+declare
+    totalbp integer;
+begin
+    select count(*) into totalbp from buyingprice where products;
+    return totalbp;
+end;
+$$;
+
+alter function totalbp() owner to postgres;
+
+create function totalreserve() returns integer
+    language plpgsql
+as
+$$
+declare
+    totalreserve integer;
+begin
+    select count(*) into totalreserve from products where reserve;
+    return reserve;
+end;
+$$;
+
+alter function totalreserve() owner to postgres;
+
+create function discount(saleprice integer) returns integer
+    language plpgsql
+as
+$$
+begin
+    saleprice := saleprice - saleprice * 0.10;
+    return saleprice;
+end;
+$$;
+
+alter function discount(integer) owner to postgres;
+
+create function productsec(prdc character varying)
+    returns TABLE
+            (
+                idproduct   integer,
+                nameproduct text
+            )
+    language plpgsql
+as
+$$
+Begin
+    Return Query
+        Select productid,
+               productname
+        From products
+        where productname like prdc;
+End;
+$$;
+
+alter function productsec(varchar) owner to postgres;
+
+create function log_productname_changes() returns trigger
+    language plpgsql
+as
+$$
+BEGIN
+    IF NEW.productname <> OLD.productname THEN
+        INSERT INTO products(productid, productname)
+        VALUES (OLD.id, OLD.productname);
+    END IF;
+
+    RETURN NEW;
+END;
+$$;
+
+alter function log_productname_changes() owner to postgres;
+
+create trigger productname_changes
+    before update
+    on products
+    for each row
+execute procedure log_productname_changes();
+
+create function totalsp() returns integer
+    language plpgsql
+as
+$$
+declare
+    totalsp integer;
+begin
+    select count(*) into totalsp from products where saleprice;
+    return totalsp;
+end;
+$$;
+
+alter function totalsp() owner to postgres;
+
+create procedure sehirekle(p1 integer, p2 text)
+    language sql
+as
+$$
+insert into city(id, name)
+values (p1, p2);
+$$;
+
+alter procedure sehirekle(integer, text) owner to postgres;
+
+create procedure personelekle(p1 integer, p2 text, p3 text)
+    language sql
+as
+$$
+insert into personel (personelid, personelad, personelsoyad)
+values (p1, p2, p3);
+$$;
+
+alter procedure personelekle(text, integer, text) owner to postgres;
+
+create procedure kategoriekle(p1 integer, p2 text)
+    language sql
+as
+$$
+insert into categories (categoryid, categoryname)
+values (p1, p2);
+$$;
+
+alter procedure kategoriekle(text, integer) owner to postgres;
+
+create function test() returns trigger
+    language plpgsql
+as
+$$
+begin
+    update toplamkategori set sayi=sayi + 1;
+    return new;
+end;
+$$;
+
+alter function test() owner to postgres;
+
+create trigger testtrigger
+    after insert
+    on categories
+    for each row
+execute procedure test();
+
+create function sehirtrigger() returns trigger
+    language plpgsql
+as
+$$
+begin
+    update toplamsehir set sayi=sayi + 1;
+    return new;
+end;
+$$;
+
+alter function sehirtrigger() owner to postgres;
+
+create trigger sehirtrigger
+    after insert
+    on city
+    for each row
+execute procedure sehirtrigger();
+
