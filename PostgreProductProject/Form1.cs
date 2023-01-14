@@ -13,7 +13,7 @@ namespace PostgreProductProject
 {
     public partial class Form1 : Form
     {
-        NpgsqlConnection conect = new NpgsqlConnection("server=localhost;port=5432;Database=projectDb;user Id=postgres;password=4462252");
+        NpgsqlConnection conect = new NpgsqlConnection("server=localhost;port=5432;Database=projectDb;user Id=postgres;password=00000");
 
 
         public Form1()
